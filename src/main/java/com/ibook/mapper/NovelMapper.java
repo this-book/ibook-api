@@ -42,4 +42,20 @@ public interface NovelMapper extends BaseMapper<Novel> {
     )
     List<Novel> getOverNovels();
 
+
+    /**
+     * @描述 获取10个已完结小说
+     * @参数 小说的ID
+     * */
+    @Select("SELECT NovelID,NovelName,NovelImg,WorkInfo FROM NOVEL where IsOver=TRUE limit 0,8")
+    @Results(
+            value = {
+                    @Result(property = "user",column = "NovelID",one = @One(select = "com.ibook.mapper.UserMapper.getAuthor")),
+                    @Result(property = "novelNoveltypes",column = "NovelID",many = @Many(select = "com.ibook.mapper.NoveltypeMapper.getNovelTypeByNovelID"))
+            }
+    )
+    List<Novel> getOverNovelsLimit();
+
+
+
 }

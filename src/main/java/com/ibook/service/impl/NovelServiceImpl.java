@@ -35,6 +35,11 @@ public class NovelServiceImpl extends ServiceImpl<NovelMapper, Novel> implements
     }
 
     @Override
+    public List<Novel> getOverNovelsLimit() {
+        return novelMapper.getOverNovelsLimit();
+    }
+
+    @Override
     public List<Novel> list() {
         return novelMapper.list();
     }

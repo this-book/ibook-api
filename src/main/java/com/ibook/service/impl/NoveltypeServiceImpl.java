@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -22,7 +24,7 @@ public class NoveltypeServiceImpl extends ServiceImpl<NoveltypeMapper, Noveltype
     private NoveltypeMapper noveltypeMapper;
 
     @Override
-    public Integer getNovelTypeID(String NovelTypeName) {
-        return noveltypeMapper.getNovelTypeID(NovelTypeName);
+    public List<Noveltype> getNovelTypeByNovelID(Integer NovelID) {
+        return noveltypeMapper.getNovelTypeByNovelID(NovelID);
     }
 }

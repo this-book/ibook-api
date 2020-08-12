@@ -120,4 +120,10 @@ public class Novel implements Serializable {
     @TableField(exist = false)
     User user;
 
+    /**
+     *  小说类型
+     * */
+    @TableField(exist = false)
+    List<NovelNoveltype> novelNoveltypes;
+
 }

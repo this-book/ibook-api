@@ -41,16 +41,24 @@ public class NovelController {
      * */
     @RequestMapping("/novels")
     public R getList(){
-        return R.ok(novelService.list());
+        return R.ok(novelService.list()).setCode(8000);
     }
 
 
     /**
      * @描述 获取已经完结小说列表
      * */
-    @RequestMapping(value = "/getOverNovels",method = RequestMethod.GET,produces = "application/json")
+    @RequestMapping(value = "/getOverNovels",method = RequestMethod.POST,produces = "application/json")
     public R getOverNovels(){
-        return R.ok(novelService.getOverNovels());
+        return R.ok(novelService.getOverNovels()).setCode(8000);
+    }
+
+    /**
+     * @描述 获取10个已经完结小说
+     * */
+    @RequestMapping(value = "/getOverNovelsLimit",method = RequestMethod.POST,produces = "application/json")
+    public R getOverNovelsLimit(){
+        return R.ok(novelService.getOverNovelsLimit()).setCode(8000);
     }
 
 

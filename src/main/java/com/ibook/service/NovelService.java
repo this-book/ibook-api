@@ -17,4 +17,5 @@ public interface NovelService extends IService<Novel> {
     List<Novel> list();
     Novel getChaptersByNovelID(Integer NovelID);
     List<Novel> getOverNovels();
+    List<Novel> getOverNovelsLimit();
 }
