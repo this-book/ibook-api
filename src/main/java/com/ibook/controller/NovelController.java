@@ -7,7 +7,9 @@ import com.ibook.entity.NovelNoveltype;
 import com.ibook.entity.User;
 import com.ibook.entity.UserNovel;
 import com.ibook.service.*;
+import com.ibook.util.NovelFormatUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,6 +29,7 @@ import java.util.UUID;
  * @since 2020-07-26
  */
 @RestController
+@CrossOrigin
 @RequestMapping("//novel")
 public class NovelController {
 
@@ -58,7 +61,10 @@ public class NovelController {
      * */
     @RequestMapping(value = "/getOverNovelsLimit",method = {RequestMethod.POST,RequestMethod.GET},produces = "application/json")
     public R getOverNovelsLimit(){
-        return R.ok(novelService.getOverNovelsLimit()).setCode(8000);
+
+        List format = NovelFormatUtil.Format(novelService.getOverNovelsLimit());
+
+        return R.ok(format).setCode(8000);
     }
 
 

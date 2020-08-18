@@ -4,6 +4,7 @@ package com.ibook.controller;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.ibook.service.ChapterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,8 +32,8 @@ public class ChapterController {
      * @描述 通过小说的ID获取对应的章节内容
      * @参数 小说的ID
      * */
-    @RequestMapping(value = "/getChapters",method = RequestMethod.GET,produces = "application/json")
-    public R getChapters(Integer NovelID){
+    @RequestMapping(value = "/getChapters/{NovelID}",method = RequestMethod.GET,produces = "application/json")
+    public R getChapters(@PathVariable Integer NovelID){
         return R.ok(chapterService.byNovelID(NovelID));
     }
 

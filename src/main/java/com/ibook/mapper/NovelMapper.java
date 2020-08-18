@@ -28,7 +28,10 @@ public interface NovelMapper extends BaseMapper<Novel> {
      * */
     @Select("select * from novel where NovelID=${NovelID}")
     @Results(
-            @Result(property = "chapters",column = "NovelID",many = @Many(select = "com.ibook.mapper.ChapterMapper.byNovelID"))
+            value = {
+                    @Result(id = true , property = "NovelID" ,column = "NovelID"),
+                    @Result(property = "chapters",column = "NovelID",many = @Many(select = "com.ibook.mapper.ChapterMapper.byNovelID"))
+            }
     )
     Novel getChaptersByNovelID(Integer NovelID);
 
@@ -38,7 +41,10 @@ public interface NovelMapper extends BaseMapper<Novel> {
      * */
     @Select("SELECT NovelID,NovelName,NovelImg,WorkInfo FROM novel where IsOver=TRUE")
     @Results(
-            @Result(property = "user",column = "NovelID",one = @One(select = "com.ibook.mapper.UserMapper.getAuthor"))
+            value = {
+                    @Result(id = true , property = "NovelID" ,column = "NovelID"),
+                    @Result(property = "user",column = "NovelID",one = @One(select = "com.ibook.mapper.UserMapper.getAuthor"))
+            }
     )
     List<Novel> getOverNovels();
 
@@ -50,8 +56,9 @@ public interface NovelMapper extends BaseMapper<Novel> {
     @Select("SELECT NovelID,NovelName,NovelImg,WorkInfo FROM novel where IsOver=TRUE limit 0,8")
     @Results(
             value = {
+                    @Result(id = true , property = "NovelID" ,column = "NovelID"),
                     @Result(property = "user",column = "NovelID",one = @One(select = "com.ibook.mapper.UserMapper.getAuthor")),
-                    @Result(property = "novelNoveltypes",column = "NovelID",many = @Many(select = "com.ibook.mapper.NoveltypeMapper.getNovelTypeByNovelID"))
+                    @Result(property = "noveltypes",column = "NovelID",many = @Many(select = "com.ibook.mapper.NoveltypeMapper.getNovelTypeByNovelID"))
             }
     )
     List<Novel> getOverNovelsLimit();
