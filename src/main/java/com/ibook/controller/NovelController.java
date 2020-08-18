@@ -57,7 +57,7 @@ public class NovelController {
     }
 
     /**
-     * @描述 获取10个已经完结小说123
+     * @描述 获取10个已经完结小说
      * */
     @RequestMapping(value = "/getOverNovelsLimit",method = {RequestMethod.POST,RequestMethod.GET},produces = "application/json")
     public R getOverNovelsLimit(){
