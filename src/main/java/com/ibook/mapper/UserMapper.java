@@ -17,7 +17,7 @@ public interface UserMapper extends BaseMapper<User> {
     /**
      * @描述 通过小说的ID查询对应的作者
      * */
-    @Select("select `user`.phone,NickName,NovelID from `User`,user_novel where `user`.Phone=user_novel.Phone and NovelID=${NovelID}")
+    @Select("select `user`.phone,NickName,NovelID from `user`,user_novel where `user`.Phone=user_novel.Phone and NovelID=${NovelID}")
     User getAuthor(Integer NovelID);
 
 }

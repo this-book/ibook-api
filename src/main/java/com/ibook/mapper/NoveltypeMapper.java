@@ -22,7 +22,7 @@ public interface NoveltypeMapper extends BaseMapper<Noveltype> {
      * @描述 通过小说ID获取对应类型
      * @参数 小说ID
      * */
-    @Select("select NovelTypeName from Noveltype,Novel_Noveltype where Noveltype.NovelTypeID=Novel_Noveltype.NovelTypeID and Novel_Noveltype.NovelID=${NovelID}")
+    @Select("select NovelTypeName from noveltype,novel_noveltype where noveltype.NovelTypeID=novel_noveltype.NovelTypeID and novel_noveltype.NovelID=${NovelID}")
     List<Noveltype> getNovelTypeByNovelID(Integer NovelID);
 
 }

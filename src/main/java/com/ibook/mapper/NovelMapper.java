@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface NovelMapper extends BaseMapper<Novel> {
 
-    @Select("SELECT NovelID,NovelName,NovelImg,WorkInfo FROM NOVEL")
+    @Select("SELECT NovelID,NovelName,NovelImg,WorkInfo FROM novel")
     @Results(
             @Result(property = "user",column = "NovelID",one = @One(select = "com.ibook.mapper.UserMapper.getAuthor"))
     )
@@ -26,7 +26,7 @@ public interface NovelMapper extends BaseMapper<Novel> {
      * @描述 根据ID获取小说并得到小说的所有章节
      * @参数 小说的ID
      * */
-    @Select("select * from Novel where NovelID=${NovelID}")
+    @Select("select * from novel where NovelID=${NovelID}")
     @Results(
             @Result(property = "chapters",column = "NovelID",many = @Many(select = "com.ibook.mapper.ChapterMapper.byNovelID"))
     )
@@ -36,7 +36,7 @@ public interface NovelMapper extends BaseMapper<Novel> {
      * @描述 获取所有已完结小说
      * @参数 小说的ID
      * */
-    @Select("SELECT NovelID,NovelName,NovelImg,WorkInfo FROM NOVEL where IsOver=TRUE")
+    @Select("SELECT NovelID,NovelName,NovelImg,WorkInfo FROM novel where IsOver=TRUE")
     @Results(
             @Result(property = "user",column = "NovelID",one = @One(select = "com.ibook.mapper.UserMapper.getAuthor"))
     )
@@ -47,7 +47,7 @@ public interface NovelMapper extends BaseMapper<Novel> {
      * @描述 获取10个已完结小说
      * @参数 小说的ID
      * */
-    @Select("SELECT NovelID,NovelName,NovelImg,WorkInfo FROM NOVEL where IsOver=TRUE limit 0,8")
+    @Select("SELECT NovelID,NovelName,NovelImg,WorkInfo FROM novel where IsOver=TRUE limit 0,8")
     @Results(
             value = {
                     @Result(property = "user",column = "NovelID",one = @One(select = "com.ibook.mapper.UserMapper.getAuthor")),

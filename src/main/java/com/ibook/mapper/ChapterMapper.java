@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface ChapterMapper extends BaseMapper<Chapter> {
 
-    @Select("select * from Chapter where NovelID=${NovelID}")
+    @Select("select * from chapter where NovelID=${NovelID}")
     List<Chapter> byNovelID(Integer NovelID);
 
 }
