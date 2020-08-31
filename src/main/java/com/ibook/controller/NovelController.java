@@ -62,7 +62,9 @@ public class NovelController {
     @RequestMapping(value = "/getOverNovelsLimit",method = {RequestMethod.POST,RequestMethod.GET},produces = "application/json")
     public R getOverNovelsLimit(){
         List format = NovelFormatUtil.Format(novelService.getOverNovelsLimit());
+            //获取10个已经的小说
 
+            //asdasdsadsadsadsadsadsadads
         return R.ok(format).setCode(8000);
     }
 
