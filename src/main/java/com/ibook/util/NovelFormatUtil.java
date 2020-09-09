@@ -1,7 +1,6 @@
 package com.ibook.util;
 
 import com.ibook.entity.Novel;
-import com.ibook.entity.NovelNoveltype;
 import com.ibook.entity.Noveltype;
 
 import java.util.ArrayList;

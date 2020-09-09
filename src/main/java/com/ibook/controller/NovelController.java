@@ -2,23 +2,13 @@ package com.ibook.controller;
 
 
 import com.baomidou.mybatisplus.extension.api.R;
-import com.ibook.entity.Novel;
-import com.ibook.entity.NovelNoveltype;
-import com.ibook.entity.User;
-import com.ibook.entity.UserNovel;
 import com.ibook.service.*;
 import com.ibook.util.NovelFormatUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * <p>
@@ -29,7 +19,7 @@ import java.util.UUID;
  * @since 2020-07-26
  */
 @RestController
-@CrossOrigin
+@CrossOrigin//跨域
 @RequestMapping("//novel")
 public class NovelController {
 
